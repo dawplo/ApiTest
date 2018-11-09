@@ -1,6 +1,7 @@
 package pl.allegrosandbox;
 
 import io.restassured.response.Response;
+import objects.ErrorMessage;
 import org.fest.assertions.Assertions;
 import org.junit.Test;
 
@@ -39,11 +40,11 @@ public class RestAssuredTest {
     @Test
     public void shouldCheckErrorMessageByMappingResponse() {
         // when
-        pl.allegrosandbox.ErrorMessage errorMessage = given()
+        ErrorMessage errorMessage = given()
                 .log().all()
                 .get(allegroSandboxEndpoint)
                 .then().log().all()
-                .extract().as(pl.allegrosandbox.ErrorMessage.class);
+                .extract().as(ErrorMessage.class);
 
         // then
         Assertions.assertThat(errorMessage.getErrors().size()).isEqualTo(1);

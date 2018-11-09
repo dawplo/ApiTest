@@ -1,4 +1,4 @@
-package pl.allegrosandbox;
+package objects;
 
 public class Errors {
 
