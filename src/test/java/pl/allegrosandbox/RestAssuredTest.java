@@ -39,11 +39,11 @@ public class RestAssuredTest {
     @Test
     public void shouldCheckErrorMessageByMappingResponse() {
         // when
-        ErrorMessage errorMessage = given()
+        pl.allegrosandbox.ErrorMessage errorMessage = given()
                 .log().all()
                 .get(allegroSandboxEndpoint)
                 .then().log().all()
-                .extract().as(ErrorMessage.class);
+                .extract().as(pl.allegrosandbox.ErrorMessage.class);
 
         // then
         Assertions.assertThat(errorMessage.getErrors().size()).isEqualTo(1);
