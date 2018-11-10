@@ -21,6 +21,7 @@ public class RestAssuredTest {
                 .then().log().all()
                 .statusCode(404)
                 .body(containsString("Skontaktuj się z autorem aplikacji"));
+        //wystarczy tylko ten test nie trzeba  tworzyć obiektów.
     }
 
     @Test  //2
