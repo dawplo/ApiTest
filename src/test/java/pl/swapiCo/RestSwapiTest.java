@@ -12,7 +12,7 @@ import static org.hamcrest.CoreMatchers.containsString;
 
 public class RestSwapiTest {
 
-    public String swapiURL = "https://swapi.co/api/people/1/?fbclid=IwAR2ilbZaxPHahiKDCQctqNqbWCJbZlouVni98hbJHNpn_0IZPwMqQf0OKrQ";
+    public String swapiURL = "https://swapi.co/api/people/1/";
 
 
     @Test
@@ -45,17 +45,6 @@ public class RestSwapiTest {
     }
 @Test
     public void shouldCheckMessageByMappingResponse(){
-//    ErrorMessageAllegro errorMessage = given()
-//            .log().all()
-//            .get(allegroSandboxEndpoint)
-//            .then().log().all()
-//            .extract().as(ErrorMessageAllegro.class);
-//
-//    // then
-//    Assertions.assertThat(errorMessage.getErrors().size()).isEqualTo(1);
-//    Assertions.assertThat(errorMessage.getErrors().get(0).getCode()).isEqualTo("NotFoundException");
-//    Assertions.assertThat(errorMessage.getErrors().get(0).getMessage()).isEqualTo("An error has occurred");
-//    Assertions.assertThat(errorMessage.getErrors().get(0).getUserMessage()).isEqualTo("Funkcja niedostępna. Skontaktuj się z autorem aplikacji.");
 
     ObjecSwapi objecSwapi = given().log().all()
             .get(swapiURL).then().log().all()
