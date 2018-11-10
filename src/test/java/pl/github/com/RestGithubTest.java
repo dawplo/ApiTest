@@ -60,7 +60,7 @@ public class RestGithubTest {
 
 
     @Test
-    @Ignore
+    
     public void CheckProductionGitByMappingResponse() {
 
         ErrorMessageGithub errorMessageGithub = given().log().all().get(searchGitExample)
