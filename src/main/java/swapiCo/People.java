@@ -1,24 +1,15 @@
 package swapiCo;
 
-public class Objects {
+import java.util.List;
+
+public class People {
+
     private String name;
     private String height;
     private String mass;
     private String hair_color;
     private String skin_color;
     private String eye_color;
-    private String birth_year;
-    private String gender;
-    private String homeworld;
-    private String films;
-    private String species;
-    private String vehicles;
-    private String starships;
-    private String created;
-    private String edited;
-    private String url;
-
-
 
     public String getName() {
         return name;
@@ -92,35 +83,35 @@ public class Objects {
         this.homeworld = homeworld;
     }
 
-    public String getFilms() {
+    public List<String> getFilms() {
         return films;
     }
 
-    public void setFilms(String films) {
+    public void setFilms(List<String> films) {
         this.films = films;
     }
 
-    public String getSpecies() {
+    public List<String> getSpecies() {
         return species;
     }
 
-    public void setSpecies(String species) {
+    public void setSpecies(List<String> species) {
         this.species = species;
     }
 
-    public String getVehicles() {
+    public List<String> getVehicles() {
         return vehicles;
     }
 
-    public void setVehicles(String vehicles) {
+    public void setVehicles(List<String> vehicles) {
         this.vehicles = vehicles;
     }
 
-    public String getStarships() {
+    public List<String> getStarships() {
         return starships;
     }
 
-    public void setStarships(String starships) {
+    public void setStarships(List<String> starships) {
         this.starships = starships;
     }
 
@@ -146,5 +137,29 @@ public class Objects {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    private String birth_year;
+    private String gender;
+    private String homeworld;
+    private List<String> films;
+    private List<String> species;
+    private List<String> vehicles;
+    private List<String> starships;
+    private String created;
+    private String edited;
+    private String url;
+
+
+
+
+    private List<People> object;
+
+    public List<People> getObject() {
+        return object;
+    }
+
+    public void setObject(List<People> object) {
+        this.object = object;
     }
 }
