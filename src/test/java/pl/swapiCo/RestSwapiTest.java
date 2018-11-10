@@ -48,12 +48,17 @@ public class RestSwapiTest {
             .get(swapiURL).then().log().all()
             .extract().as(People.class);
 
-//    Assertions.assertThat(people.getObject().size()).isEqualTo(1);
-//    Assertions.assertThat(people.getObject().get(0).getGender()).isEqualTo("male");
+    Assertions.assertThat(people.getStarships().size()).isEqualTo(2); //sprawdza czy ilość starships jest 2.
 
+    Assertions.assertThat(people.getFilms().size()).isEqualTo(5);  //sprawdza czy ilość filmów jest 5
+    Assertions.assertThat(people.getFilms().get(4)).isEqualTo("https://swapi.co/api/films/7/");
+    Assertions.assertThat(people.getFilms().get(0))
+            .isEqualTo("https://swapi.co/api/films/2/"); //dlatego ze liczymy od zera
 
-
-
+    Assertions.assertThat(people.getName()).isEqualTo("Luke Skywalker");
+    Assertions.assertThat(people.getEye_color()).isEqualTo("blue");
+//    Assertions.assertThat(people.getFilms()).containsOnly("https://swapi.co/api/films/2/"); //wywali sie bo oczekuje ze jest 1 film
+    Assertions.assertThat(people.getUrl()).contains("https://swapi.co/api/people/1/");
 
     }
 

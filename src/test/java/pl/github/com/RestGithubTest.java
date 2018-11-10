@@ -4,6 +4,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import objects.ErrorMessageGithub;
 import org.fest.assertions.Assertions;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -57,7 +58,7 @@ public class RestGithubTest {
 
     }
 
-
+    @Ignore
     @Test
 
     public void CheckProductionGitByMappingResponse() {
@@ -76,31 +77,29 @@ public class RestGithubTest {
     }
 
 
+    public static String createCustomer = "https://regres.in/api/users";
+    public static String raceUrl = "http://ergast.com/api/f1/2017/circuits.json";
 
+    @Test
+    public void countryNamesTest() {
+        given()
+                .when()
+                .get(raceUrl)
+                .then()
+                .assertThat()
+                .statusCode(200);
+        Response response = given().when().get(raceUrl);
+        String responceValues = response.getBody().asString();
+        System.out.println("Response");
+        System.out.println(responceValues);
 
-        public static String createCustomer = "https://regres.in/api/users";
-        public static String raceUrl = "http://ergast.com/api/f1/2017/circuits.json";
-
-        @Test
-        public void countryNamesTest() {
-            given()
-                    .when()
-                    .get(raceUrl)
-                    .then()
-                    .assertThat()
-                    .statusCode(200);
-            Response response = given().when().get(raceUrl);
-            String responceValues = response.getBody().asString();
-            System.out.println("Response");
-            System.out.println(responceValues);
-
-            JsonPath jsonPath = new JsonPath(responceValues);
-            String countryName = jsonPath.getString("MRData.CircuitTable.Circuits.location.country[0]");
-            System.out.println(countryName);
-
-        }
+        JsonPath jsonPath = new JsonPath(responceValues);
+        String countryName = jsonPath.getString("MRData.CircuitTable.Circuits.location.country[0]");
+        System.out.println(countryName);
 
     }
+
+}
 
 
 
