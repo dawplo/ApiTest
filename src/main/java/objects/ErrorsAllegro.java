@@ -1,16 +1,18 @@
 package objects;
 
+import java.util.List;
+
 public class ErrorsAllegro {
 
     private String code;
 
     private String message;
 
-    private String details;
-
     private String path;
 
     private String userMessage;
+
+
 
     public String getCode() {
         return code;
@@ -28,13 +30,6 @@ public class ErrorsAllegro {
         this.message = message;
     }
 
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
 
     public String getPath() {
         return path;
@@ -51,5 +46,17 @@ public class ErrorsAllegro {
     public void setUserMessage(String userMessage) {
         this.userMessage = userMessage;
     }
+
+
+    private List<ErrorsAllegro> details;
+
+    public List<ErrorsAllegro> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<ErrorsAllegro> details) {
+        this.details = details;
+    }
+
 
 }

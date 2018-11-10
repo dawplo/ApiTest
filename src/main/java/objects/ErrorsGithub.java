@@ -21,6 +21,8 @@ public class ErrorsGithub {
     private String repos_url;
     private String events_url;
     private String received_events_url;
+    private String type;
+    private String site_admin;
 
     public void setItems(String items) {
         this.items = items;
@@ -105,10 +107,6 @@ public class ErrorsGithub {
     public void setSite_admin(String site_admin) {
         this.site_admin = site_admin;
     }
-
-    private String type;
-    private String site_admin;
-
 
     public String getItems() {
         return items;

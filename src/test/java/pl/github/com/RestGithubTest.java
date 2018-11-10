@@ -4,7 +4,6 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import objects.ErrorMessageGithub;
 import org.fest.assertions.Assertions;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -60,7 +59,7 @@ public class RestGithubTest {
 
 
     @Test
-    
+
     public void CheckProductionGitByMappingResponse() {
 
         ErrorMessageGithub errorMessageGithub = given().log().all().get(searchGitExample)
