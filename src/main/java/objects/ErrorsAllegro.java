@@ -1,6 +1,6 @@
 package objects;
 
-public class Errors {
+public class ErrorsAllegro {
 
     private String code;
 
