@@ -6,11 +6,13 @@ import org.fest.assertions.Assertions;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class RestAssuredTest {
 
     private String allegroSandboxEndpoint = "https://api.allegro.pl.allegrosandbox.pl";
+    private String jsonapitest = "http://ip.jsontest.com/";
 
     private String jsonText = "fbdtbdffdbfdfdbfdb";
 
@@ -20,7 +22,7 @@ public class RestAssuredTest {
                 .when().get(allegroSandboxEndpoint)
                 .then().log().all()
                 .statusCode(404)
-                .body(containsString("Skontaktuj się z autorem aplikacji"));
+                .body(containsString("Contact the author of the application."));
         //wystarczy tylko ten test nie trzeba  tworzyć obiektów.
     }
 
@@ -35,8 +37,8 @@ public class RestAssuredTest {
         Assertions.assertThat(response.statusCode()).isEqualTo(404);
         Assertions.assertThat(response.jsonPath().getList("errors.code"))
                 .contains("NotFoundException");
-        Assertions.assertThat(response.jsonPath().getList("errors.message")).contains("An error has occurred");
-        Assertions.assertThat(response.jsonPath().getList("errors.userMessage")).contains("Funkcja niedostępna. Skontaktuj się z autorem aplikacji.");
+        Assertions.assertThat(response.jsonPath().getList("errors.message")).contains("Not found");
+        Assertions.assertThat(response.jsonPath().getList("errors.userMessage")).contains("Function is not available. Contact the author of the application.");
     }
 
     @Test
@@ -51,8 +53,21 @@ public class RestAssuredTest {
         // then
         Assertions.assertThat(errorMessage.getErrors().size()).isEqualTo(1);
         Assertions.assertThat(errorMessage.getErrors().get(0).getCode()).isEqualTo("NotFoundException");
-        Assertions.assertThat(errorMessage.getErrors().get(0).getMessage()).isEqualTo("An error has occurred");
-        Assertions.assertThat(errorMessage.getErrors().get(0).getUserMessage()).isEqualTo("Funkcja niedostępna. Skontaktuj się z autorem aplikacji.");
+        Assertions.assertThat(errorMessage.getErrors().get(0).getMessage()).isEqualTo("Not found");
+        Assertions.assertThat(errorMessage.getErrors().get(0).getUserMessage()).isEqualTo("Function is not available. Contact the author of the application.");
     }
 
-}
+    @Test
+    public void RestAssuredLotto(){
+
+        when().get(jsonapitest) .then().log().all().statusCode(200);
+        when().post(jsonapitest).then().log().all().statusCode(200);
+
+          Response response = given().log().all().get(jsonapitest);
+
+                response.prettyPrint();
+
+                Assertions.assertThat(response.jsonPath().getString("ip").contains("89.70.180.111"));   //nierobi
+
+
+    }}

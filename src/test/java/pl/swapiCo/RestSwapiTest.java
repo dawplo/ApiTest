@@ -59,6 +59,7 @@ public class RestSwapiTest {
     Assertions.assertThat(people.getEye_color()).isEqualTo("blue");
 //    Assertions.assertThat(people.getFilms()).containsOnly("https://swapi.co/api/films/2/"); //wywali sie bo oczekuje ze jest 1 film
     Assertions.assertThat(people.getUrl()).contains("https://swapi.co/api/people/1/");
+    Assertions.assertThat(people.getStarships().get(1)).endsWith("starships/22/"); //czy drugi statek ma koniec 22 - liczymy od zera.
 
     }
 
