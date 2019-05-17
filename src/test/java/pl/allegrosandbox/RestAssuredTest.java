@@ -62,6 +62,9 @@ public class RestAssuredTest {
 
         when().get(jsonapitest) .then().log().all().statusCode(200);
         when().post(jsonapitest).then().log().all().statusCode(200);
+         when().put(jsonapitest).then().log().all().statusCode(405);    //  405 HTTP method PUT is not supported by this URL
+          when().delete(jsonapitest).then().log().all().statusCode(405);
+           when().head(jsonapitest).then().log().all().statusCode(200);
 
           Response response = given().log().all().get(jsonapitest);
 

@@ -34,6 +34,7 @@ public class RestGithubTest {
     public void checkErrorMessageGithub() {
 
         Response response = given().when().get(githubSearchRepositories);
+        Response response1 = given().when().head(githubSearchRepositories);
 
         response.prettyPrint();
 
@@ -42,6 +43,8 @@ public class RestGithubTest {
 
         Assertions.assertThat(response.jsonPath().getString("node_id")
                 .contains("MDEwOlJlcG9zaXRvcnkzMDgxMjg2")); //it work's
+        Assertions.assertThat(response1.jsonPath().getString("network_count")
+                .contains("2"));
     }
 
     @Test
